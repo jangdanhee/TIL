@@ -22,6 +22,24 @@
 `background-color: gray;` -> 배경색  
 `margin / padding` -> 여백
 
+## 박스 모델(Box model)
+
+- **Content (컨텐츠)**
+  :텍스트나 이미지가 표시되는 실제 내용.
+  _width, height로 조절_
+
+- **Border (테두리)**
+  :패딩과 마진 사이의 선.
+  _스타일,두께,색상 지정 가능_
+
+- **Margin (바깥쪽 여백)**
+  :테두리 외부의 다른 요소와의 간격.
+
+- **Padding (안쪽 여백)**
+  :콘텐츠 테두리 사이의 공간
+
+---
+
 > CSS와 함께 쓰이는 언어 정리
 
 <table border="2">

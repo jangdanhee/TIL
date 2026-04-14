@@ -16,7 +16,7 @@
 
 ## HTTP의 주요 특징
 
-### 2-1. 클라이언트-서버 구조 (Client-Server Architecture)
+### 클라이언트-서버 구조 (Client-Server Architecture)
 
 - **클라이언트**: 요청을 보내는 주체 (웹 브라우저, 앱 등)
 - **서버**: 요청을 받아 처리하고 응답을 반환하는 주체
@@ -26,7 +26,7 @@
 | 클라이언트 | 사용자 인터페이스와 사용자 경험 담당    |
 | 서버       | 데이터 처리, 비즈니스 로직, 저장소 담당 |
 
-> 이 구조 덕분에 클라이언트와 서버가 **독립적으로 발전**할 수 있다.
+> 이 구조 덕분에 클라이언트와 서버가 **독립적으로 발전**할 수있다.
 
 ### 무상태 구조 (Stateless)
 
@@ -64,7 +64,7 @@ Host: api.example.com
 
 - 서버에서 **데이터를 가져올 때** 사용
 - URL에 파라미터를 포함할 수 있다: `/search?keyword=http`
-- **멱등성(Idempotent)**: 여러 번 호출해도 결과가 동일하다
+- 여러번 호출해도 결과가 동일하다
 
 ### POST
 
@@ -74,7 +74,7 @@ Host: api.example.com
 Content-Type: application/json
 
 {
-  "name": "홍길동",
+  "name": "김땡땡",
   "email": "hong@example.com"
 }
 ```
@@ -91,7 +91,7 @@ Host: api.example.com
 Content-Type: application/json
 
 {
-  "name": "홍길동",
+  "name": "김땡땡",
   "email": "new@example.com"
 }
 ```
@@ -114,7 +114,7 @@ Host: api.example.com
 
 ## HTTP 상태 코드 (Status Code)
 
-서버가 클라이언트의 요청에 대한 **처리 결과**를 3자리 숫자로 알려준다.
+서버가 클라이언트의 요청에 대한 **처리 결과**를 3자리숫자로 알려준다.
 
 ### 상태 코드 분류
 
@@ -145,55 +145,84 @@ Host: api.example.com
 
 ---
 
-## HTTP 요청과 응답 구조
+## HTTP 통신의 메커니즘: 요청(Request)과 응답(Response)
+
+HTTP(HyperText Transfer Protocol)는 클라이언트와 서버가 데이터를 주고받기 위한 **무상태성(Stateless)** 규약. 모든 통신은 구조화된 메시지를 통해 이루어진다.
+
+[Image of HTTP request and response message structure]
 
 ### HTTP 요청 (Request) 구조
 
-**시작줄**: `메서드 + 경로 + HTTP 버전`으로 구성
+클라이언트가 서버에 특정 동작을 요구하는 메세지.
 
-### HTTP 응답 (Response) 구조
-
-### Header의 역할
-
-헤더는 **메타데이터(부가 정보)** 를 전달하며 `Key: Value` 형태로 작성한다.
-
-**요청 헤더 예시**
-
-| 헤더            | 설명                                            |
-| --------------- | ----------------------------------------------- |
-| `Host`          | 요청하는 서버의 도메인                          |
-| `Content-Type`  | 요청 Body의 데이터 형식 (`application/json` 등) |
-| `Authorization` | 인증 토큰                                       |
-| `Accept`        | 클라이언트가 받을 수 있는 데이터 형식           |
-| `User-Agent`    | 클라이언트 환경 정보 (브라우저, OS 등)          |
-
-**응답 헤더 예시**
-
-| 헤더             | 설명                              |
-| ---------------- | --------------------------------- |
-| `Content-Type`   | 응답 Body의 데이터 형식           |
-| `Content-Length` | 응답 Body의 크기 (bytes)          |
-| `Set-Cookie`     | 쿠키 설정                         |
-| `Cache-Control`  | 캐싱 정책                         |
-| `Location`       | 리다이렉트 대상 URL (3xx 응답 시) |
-
-### Body의 역할
-
-Body는 **실제 전송할 데이터**를 담는다.
-
-- `GET`, `DELETE` 요청은 일반적으로 Body가 없다.
-- `POST`, `PUT` 요청은 생성/수정할 데이터를 Body에 담는다.
-- 응답 Body에는 JSON, HTML, 이미지 등 실제 콘텐츠가 담긴다.
-
-```json
-// 응답 Body 예시 (JSON)
-{
-  "id": 1,
-  "name": "홍길동",
-  "email": "hong@example.com"
-}
-```
+- **시작줄 (Start Line)**: `메서드(Method) + 경로(Path) + HTTP 버전`
+  - 예: `POST /api/v1/login HTTP/1.1`
+- **헤더 (Headers)**: 요청에 대한 메타데이터 (Host, User-Agent, Authorization 등)
+- **빈 줄 (Empty Line)**: 헤더와 본문을 구분하는 필수 공백
+- **본문 (Body)**: 서버로 보낼 실제 데이터 (주로 JSON 포맷)
 
 ---
 
-##
+### HTTP 응답 (Response) 구조
+
+서버가 클라이언트의 요청을 처리한 결과를 전달하는 메세지.
+
+- **상태 라인 (Status Line)**: `HTTP 버전 + 상태 코드(Status Code) + 상태 메시지`
+  - 예: `HTTP/1.1 200 OK`
+- **헤더 (Headers)**: 응답에 대한 부가 정보 (Content-Type, Cache-Control 등)
+- **빈 줄 (Empty Line)**: 구분자
+- **본문 (Body)**: 클라이언트가 요청한 데이터 (HTML, JSON, 이미지 파일 등)
+
+---
+
+### 상태 코드(Status Code)의 전략적 분류
+
+서버는 상태 코드를 통해 요청의 처리 결과를 명확히 전달한다. 이는 프론트엔드에서 에러 핸들링을 수행하는 핵심 근거가 된다.
+
+| 분류                    | 의미                | 대표 사례                                          |
+| :---------------------- | :------------------ | :------------------------------------------------- |
+| **1xx (Informational)** | 요청 수신 중        | 101 Switching Protocols                            |
+| **2xx (Successful)**    | **요청 처리 성공**  | 200 OK, 201 Created (리소스 생성)                  |
+| **3xx (Redirection)**   | **추가 동작 필요**  | 301 Moved Permanently, 304 Not Modified            |
+| **4xx (Client Error)**  | **클라이언트 오류** | 400 Bad Request, 401 Unauthorized, 404 Not Found   |
+| **5xx (Server Error)**  | **서버 내부 오류**  | 500 Internal Server Error, 503 Service Unavailable |
+
+---
+
+### Header의 역할ㅣ 통신의 제어와 최적화
+
+헤더는 **메타데이터(부가 정보)**를 전달하며 `Key: Value` 형태로 작성. 단순히 정보를 전달하는 것을 넘어 캐싱, 보안, 데이터 형식을 제어.
+
+**주요 요청 헤더 (Request Headers)**
+
+- `Host`: 요청을 보내는 서버의 도메인 이름
+- `Authorization`: 인증 토큰(JWT 등)을 담아 권한을 증명
+- `Content-Type`: 보내는 데이터의 형식 (예: `application/json`)
+- `Accept`: 서버로부터 받고자 하는 데이터 형식 설정
+
+**주요 응답 헤더 (Response Headers)**
+
+- `Set-Cookie`: 서버가 클라이언트에 쿠키를 저장하도록 지시
+- `Cache-Control`: 브라우저가 응답 데이터를 얼마나 캐싱할지 제어 (성능 최적화의 핵심)
+- `Access-Control-Allow-Origin`: CORS 정책 허용 여부를 명시
+
+---
+
+### Body의 역할: 실질적 가치 전달
+
+Body는 **페이로드(Payload)**, 즉 실제 전송할 데이터를 담는 영역.
+
+- **데이터의 유무**: `GET`, `DELETE`는 리소스의 식별에 집중하므로 Body를 생략하는 것이 관례이며, `POST`, `PUT`, `PATCH`는 리소스를 생성하거나 수정할 데이터를 Body에 포함.
+- **형식의 다양성**: 응답 Body에는 단순 텍스트뿐만 아니라 JSON, 바이너리 데이터(이미지, 비디오), HTML 문서 등이 포함될 수 있으며, 이는 응답 헤더의 `Content-Type`에 의해 정의된다.
+
+```json
+{
+  "status": 200,
+  "message": "User information retrieved successfully",
+  "data": {
+    "uuid": "a1b2c3d4",
+    "username": "developer_kim",
+    "role": "admin"
+  }
+}
+```

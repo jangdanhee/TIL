@@ -18,14 +18,17 @@
 
 ### 주요 기술 스택
 
-| 분류       | 기술                                  |
-| ---------- | ------------------------------------- |
-| 기본 언어  | HTML, CSS, JavaScript                 |
-| 프레임워크 | React, Vue.js, Angular, Next.js       |
-| 스타일링   | Tailwind CSS, Sass, Styled-components |
-| 상태 관리  | Redux, Zustand, Recoil                |
-| 빌드 도구  | Vite, Webpack                         |
-| 테스트     | Jest, Cypress                         |
+| 분류       | 기술                                                         |
+| ---------- | ------------------------------------------------------------ |
+| 기본 언어  | HTML, CSS, JavaScript                                        |
+| 프레임워크 | Vue.js, Angular, Next.js                                     |
+| 라이브러리 | React                                                        |
+| 스타일링   | Tailwind CSS, Sass, Styled-components                        |
+| 상태 관리  | Redux, Zustand, Recoil, TanStack Query (서버 상태 관리 특화) |
+| 빌드 도구  | Vite, Webpack                                                |
+| 테스트     | Jest, Cypress                                                |
+
+> **TanStack Query란?** 서버에서 받아오는 데이터(서버 상태)를 효율적으로 관리해주는 라이브러리. API 호출 결과의 캐싱, 자동 갱신, 로딩/에러 상태 처리 등을 간편하게 다룰 수 있어 현업에서 널리 사용된다.
 
 ### 결과물 예시
 
@@ -52,14 +55,15 @@
 
 ### 주요 기술 스택
 
-| 분류         | 기술                                          |
-| ------------ | --------------------------------------------- |
-| 언어         | Java, Python, Node.js, Go, Kotlin             |
-| 프레임워크   | Spring Boot, Django, FastAPI, Express, NestJS |
-| 데이터베이스 | MySQL, PostgreSQL, MongoDB, Redis             |
-| API 방식     | REST API, GraphQL, gRPC                       |
-| 인증         | JWT, OAuth2.0, Session                        |
-| 테스트       | JUnit, pytest                                 |
+| 분류         | 기술                                                                      |
+| ------------ | ------------------------------------------------------------------------- |
+| 언어         | Java, Python, JavaScript, Go, Kotlin                                      |
+| 런타임 환경  | Node.js (JavaScript를 서버 등 브라우저 밖에서 실행할 수 있게 해주는 환경) |
+| 프레임워크   | Spring Boot, Django, FastAPI, Express, NestJS                             |
+| 데이터베이스 | MySQL, PostgreSQL, MongoDB, Redis                                         |
+| API 방식     | REST API, GraphQL, gRPC                                                   |
+| 인증         | JWT, OAuth2.0, Session                                                    |
+| 테스트       | JUnit, pytest                                                             |
 
 ### 결과물 예시
 
@@ -104,9 +108,9 @@
 
 ---
 
-## UI/UX Design
+## UX Design
 
-> 사용자가 **편리하고 아름답게** 서비스를 사용할 수 있도록 경험과 화면을 설계하는 직군
+> 사용자가 **서비스를 편리하고 효율적으로 사용**할 수 있도록 경험 흐름을 설계하는 직군
 
 ### 하는 일
 
@@ -114,27 +118,46 @@
 - **정보 구조(IA) 설계**: 메뉴, 페이지 흐름, 콘텐츠 배치 구조 설계
 - **와이어프레임**: 화면의 뼈대 레이아웃 스케치
 - **프로토타입**: 클릭 가능한 시뮬레이션 제작 (Figma 등)
-- **UI 디자인**: 색상, 타이포그래피, 아이콘, 컴포넌트 시각 디자인
-- **디자인 시스템 구축**: 일관된 컴포넌트 라이브러리 및 가이드라인 제작
 - **사용성 테스트**: 실제 사용자가 화면을 얼마나 잘 사용하는지 검증
-- **개발 핸드오프**: 디자인 스펙을 프론트엔드 개발자에게 전달
 
 ### 주요 기술/도구
 
 | 분류         | 도구                           |
 | ------------ | ------------------------------ |
-| UI 디자인    | Figma, Sketch, Adobe XD        |
 | 프로토타이핑 | Figma, InVision, Principle     |
-| 그래픽       | Adobe Photoshop, Illustrator   |
 | 리서치       | Maze, Hotjar, Google Analytics |
-| 협업         | Zeplin, Notion, Miro           |
+| 협업         | Notion, Miro                   |
+
+### 결과물 예시
+
+- 사용자 여정 지도 (User Journey Map)
+- 클릭 가능한 인터랙티브 프로토타입
+- 사용성 테스트 리포트
+
+---
+
+## UI Design
+
+> 사용자가 **시각적으로 아름답고 일관되게** 서비스를 경험할 수 있도록 화면을 설계하는 직군
+
+### 하는 일
+
+- **UI 디자인**: 색상, 타이포그래피, 아이콘, 컴포넌트 시각 디자인
+- **디자인 시스템 구축**: 일관된 컴포넌트 라이브러리 및 가이드라인 제작
+- **개발 핸드오프**: 디자인 스펙을 프론트엔드 개발자에게 전달
+
+### 주요 기술/도구
+
+| 분류      | 도구                         |
+| --------- | ---------------------------- |
+| UI 디자인 | Figma, Sketch, Adobe XD      |
+| 그래픽    | Adobe Photoshop, Illustrator |
+| 협업      | Zeplin, Notion               |
 
 ### 결과물 예시
 
 - 앱/웹 화면 디자인 시안
-- 클릭 가능한 인터랙티브 프로토타입
 - 디자인 시스템 (버튼, 색상, 폰트 가이드)
-- 사용성 테스트 리포트
 
 ---
 
@@ -194,5 +217,6 @@
 - **프론트엔드**: 사용자가 보는 것을 만든다
 - **백엔드**: 데이터와 로직을 처리한다
 - **클라우드**: 서비스가 24시간 안정적으로 돌아가게 한다
-- **디자인**: 사용자가 쉽고 즐겁게 쓸 수 있게 설계한다
+- **UX 디자인**: 사용자가 쉽고 편리하게 목표를 달성할 수 있도록 경험을 설계한다
+- **UI 디자인**: 사용자가 아름답고 일관된 화면을 경험할 수 있도록 시각을 설계한다
 - **프론트 ↔ 백엔드**: HTTP + REST API + JSON으로 소통한다

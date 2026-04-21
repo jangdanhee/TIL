@@ -1,6 +1,6 @@
 # HTTP란?
 
-:_Hyper Text Transfer Protocol의 약자로, World Wide Wed 상에서 데이터를 주고받기 의한 **통신 규약(프로토콜)**._
+_Hyper Text Transfer Protocol의 약자로, World Wide Web 상에서 데이터를 주고받기 위한 **통신 규약(프로토콜)**._
 
 > HTTP는 클라이언트와 서버 간의 요청과 응답을 통해 작동한다.
 
@@ -26,7 +26,7 @@
 | 클라이언트 | 사용자 인터페이스와 사용자 경험 담당    |
 | 서버       | 데이터 처리, 비즈니스 로직, 저장소 담당 |
 
-> 이 구조 덕분에 클라이언트와 서버가 **독립적으로 발전**할 수있다.
+> 이 구조 덕분에 클라이언트와 서버가 **독립적으로 발전**할 수 있다.
 
 ### 무상태 구조 (Stateless)
 
@@ -64,7 +64,7 @@ Host: api.example.com
 
 - 서버에서 **데이터를 가져올 때** 사용
 - URL에 파라미터를 포함할 수 있다: `/search?keyword=http`
-- 여러번 호출해도 결과가 동일하다
+- 여러번 호출해도 결과가 동일하다 (**멱등성** 보장)
 
 ### POST
 
@@ -81,7 +81,7 @@ Content-Type: application/json
 
 - 새로운 **데이터를 생성할 때** 사용
 - 데이터를 Body에 담아 전송한다
-- 같은 요청을 반복하면 중복 생성될 수 있다
+- GET과 달리 **비멱등(Non-idempotent)** 메서드로, 같은 요청을 반복하면 그때마다 새로운 리소스가 생성될 수 있다
 
 ### PUT
 
@@ -114,7 +114,7 @@ Host: api.example.com
 
 ## HTTP 상태 코드 (Status Code)
 
-서버가 클라이언트의 요청에 대한 **처리 결과**를 3자리숫자로 알려준다.
+서버가 클라이언트의 요청에 대한 **처리 결과**를 3자리 숫자로 알려준다.
 
 ### 상태 코드 분류
 
@@ -149,11 +149,9 @@ Host: api.example.com
 
 HTTP(HyperText Transfer Protocol)는 클라이언트와 서버가 데이터를 주고받기 위한 **무상태성(Stateless)** 규약. 모든 통신은 구조화된 메시지를 통해 이루어진다.
 
-[Image of HTTP request and response message structure]
-
 ### HTTP 요청 (Request) 구조
 
-클라이언트가 서버에 특정 동작을 요구하는 메세지.
+클라이언트가 서버에 특정 동작을 요구하는 메시지.
 
 - **시작줄 (Start Line)**: `메서드(Method) + 경로(Path) + HTTP 버전`
   - 예: `POST /api/v1/login HTTP/1.1`
@@ -165,7 +163,7 @@ HTTP(HyperText Transfer Protocol)는 클라이언트와 서버가 데이터를 �
 
 ### HTTP 응답 (Response) 구조
 
-서버가 클라이언트의 요청을 처리한 결과를 전달하는 메세지.
+서버가 클라이언트의 요청을 처리한 결과를 전달하는 메시지.
 
 - **상태 라인 (Status Line)**: `HTTP 버전 + 상태 코드(Status Code) + 상태 메시지`
   - 예: `HTTP/1.1 200 OK`
@@ -189,7 +187,7 @@ HTTP(HyperText Transfer Protocol)는 클라이언트와 서버가 데이터를 �
 
 ---
 
-### Header의 역할ㅣ 통신의 제어와 최적화
+### Header의 역할 | 통신의 제어와 최적화
 
 헤더는 **메타데이터(부가 정보)**를 전달하며 `Key: Value` 형태로 작성. 단순히 정보를 전달하는 것을 넘어 캐싱, 보안, 데이터 형식을 제어.
 
